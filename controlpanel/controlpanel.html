@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Control Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 { margin-bottom: 20px; }
+    button {
+      padding: 12px 20px;
+      margin: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      background: #0078ff;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover { background: #005fcc; }
+  </style>
+</head>
+<body>
+  <h1>Remote Control Panel</h1>
+
+  <button onclick="send('action1')">Action 1</button>
+  <button onclick="send('action2')">Action 2</button>
+  <button onclick="send('action3')">Action 3</button>
+
+  <script>
+    function send(cmd) {
+      fetch('http://YOUR_DEVICE_IP/' + cmd)
+        .then(r => console.log('Sent:', cmd));
+    }
+  </script>
+</body>
+</html>
